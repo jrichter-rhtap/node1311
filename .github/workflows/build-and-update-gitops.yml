@@ -25,6 +25,8 @@ env:
   COSIGN_SECRET_KEY: ${{ secrets.COSIGN_SECRET_KEY }}
   COSIGN_PUBLIC_KEY: ${{ secrets.COSIGN_PUBLIC_KEY }}
   GITOPS_AUTH_PASSWORD: ${{ secrets.GITOPS_AUTH_PASSWORD }}
+  REKOR_HOST: ${{ secrets.REKOR_HOST }}
+  TUF_MIRROR: ${{ secrets.TUF_MIRROR }}
 
   # 🖊️ EDIT to specify custom tags for the container image, or default tags will be generated below.
   IMAGE_TAGS: ""
@@ -65,7 +67,8 @@ jobs:
             COSIGN_PUBLIC_KEY: `${{ secrets.COSIGN_PUBLIC_KEY }}`,
 
             GITOPS_AUTH_PASSWORD: `${{ secrets.GITOPS_AUTH_PASSWORD }}`,
-
+            REKOR_HOST: `${{ secrets.REKOR_HOST }}`,
+            TUF_MIRROR: `${{ secrets.TUF_MIRROR }}`,
           };
           const missingSecrets = Object.entries(secrets).filter(([ name, value ]) => {
             if (value.length === 0) {
