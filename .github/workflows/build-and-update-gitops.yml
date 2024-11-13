@@ -67,8 +67,8 @@ jobs:
             COSIGN_PUBLIC_KEY: `${{ secrets.COSIGN_PUBLIC_KEY }}`,
 
             GITOPS_AUTH_PASSWORD: `${{ secrets.GITOPS_AUTH_PASSWORD }}`,
-            REKOR_HOST: ${{ secrets.REKOR_HOST }},
-            TUF_MIRROR: ${{ secrets.TUF_MIRROR }},
+            REKOR_HOST: `${{ secrets.REKOR_HOST }}`,
+            TUF_MIRROR: `${{ secrets.TUF_MIRROR }}`,
           };
           const missingSecrets = Object.entries(secrets).filter(([ name, value ]) => {
             if (value.length === 0) {
